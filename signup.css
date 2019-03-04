@@ -2,7 +2,7 @@ body{
     background-color: azure
 }
 
-nav{
+div{
     background-color:    bisque;
 }
 
@@ -34,8 +34,8 @@ ul {
   }
 
   li{
-      float: left;
-      text-transform: capitalize;
+    float: left;
+    text-transform: capitalize;
   }
   
   li a {
