@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Signin</title>
+    <style>
+        body {
+            background-image: url("");
+        }
+
+        .myfont,
+        a {
+            font-family: 'futura-pt';
+            font-size: 18px;
+            padding: 0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-light">
+                <!--  navbar-light bg-light -->
+                <a class="nav-link active" href="index.html">
+                    <img src="logo.png" alt="revature logo"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end myfont" id="navbarSupportedContent">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link " href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contactus.html">ContactUs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="signup.html">SignUp</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="userName" class="nav-link active" href="signin.html">Signin</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="game.html">Game</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+
+        <div class="contact">
+            <div class="container">
+                <!--Section heading-->
+                <h2 class="h1-responsive font-weight-bold text-center my-4">Sign In</h2>
+                <!--Section description-->
+                <p class="font-weight-bold text-center">Welcome back! Don't have an account?<br>
+                        <a href="signup.html">Sign up</a> for a free account and start playing today.</p>
+            </div>
+        </div>
+        <section class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-9 mb-md-0 mb-5">
+                    <form id="form" action="#">
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div class="md-form mb-0">
+                                    <label for="user" class=""></label>
+                                    <input type="text" id="user" name="user" class="form-control" placeholder="User Name" required>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="md-form mb-0">
+                                    <label for="password" class=""></label>
+                                    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <br><br>
+                        <div class="row justify-content-center">
+                            <br><br>
+                            <button style="width: 50%" id="signinbt" class="btn btn-primary">SignIn</button>
+                        </div>
+                        <br><br>
+                        <div class="row justify-content-center">
+                                
+                                <a id="forgetlink" href="#">Forgot your password?</a>
+                            </div>
+
+                    </form>
+                </div>
+                
+            </div>
+    </div>
+    </section>
+    <br><br>
+
+
+    <footer class="container">
+            <div class="row d-flex justify-content-center">
+              <div class="social-btns">
+                <a class="btn facebook" href="https://www.facebook.com/revature/"><i class="fa fa-facebook"
+                    aria-hidden="true"></i></a>
+                <a class="btn google" href="https://plus.google.com/105106530231788340113"><i class="fa fa-google"
+                    aria-hidden="true"></i></a>
+                <a class="btn linkedin" href="https://www.linkedin.com/company/revature"><i class="fa fa-linkedin"
+                    aria-hidden="true"></i></a>
+                <a class="btn instagram" href="https://www.instagram.com/teamrevature/"><i class="fa fa-instagram"
+                    aria-hidden="true"></i></a>
+                <a class="btn github" href="https://github.com/Revature"><i class="fa fa-github" aria-hidden="true"></i></a>
+              </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+              <p>Powered by <a href="https://revature.com/">Revature.</a> &copy <span id="year"></span> All rights reserverd.
+              </p>
+              <script>
+                let year = new Date();
+                document.getElementById("year").innerHTML = year.getFullYear();
+              </script>
+            </div>
+          </footer>
+
+    </div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="signin.js"></script>
+</body>
+
+</html>

@@ -11,3 +11,6 @@ function challenge1(num) {
         return "Input: A number as an integer";
 
 }
+
+
+let chall = 0;

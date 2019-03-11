@@ -52,8 +52,19 @@ function validatelastname(){
     }
 }
 
+function validatemiddlename(){
+    if(document.getElementById("middlename").value === document.getElementById("lastname").value){
+        document.getElementById("errormn").innerHTML = "Middle Name can't be as Last Name";
+        buttonFs();
+        
+    }else{
+        document.getElementById("errorln").innerHTML = "";
+        buttonEn();
+    }
+}
+
 function validateage(){
-    if(document.getElementById("age").value < 8 || document.getElementById("age").value > 120){
+    if(document.getElementById("age").value < 16 || document.getElementById("age").value > 100){
         document.getElementById("errorage").innerHTML = "Age should be between 8 and 120";
         buttonFs();
     }
