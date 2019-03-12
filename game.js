@@ -136,7 +136,7 @@ function move() {
         ball2 = new Ball(10, 3, "green");
     }
     
-    if(ball.y == player.y){
+    if(ball.y == player.y || ball1.y == player.y || ball2.y == player.y){
         console.log("HH");
         sc++;
         score.innerText = "Score: " + sc;
