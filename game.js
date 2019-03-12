@@ -37,7 +37,7 @@ addEventListener('keydown', function (event) {
         } else if (map['38']) {
             player.y += -10;
         }
-        // else if (map['40']) {
+        // else if (map['40']) { //prevent back
         //     player.y += 10;
         // }
 
