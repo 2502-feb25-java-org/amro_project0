@@ -6,10 +6,14 @@ canvas.width = Width;
 canvas.height = Height;
 let c = canvas.getContext('2d');
 
+// get score object
+let score = document.getElementById("score");
+let sc = 0;
+
 //set bg image
-var bg = new Image(); 
+var bg = new Image();
 bg.src = 'ca-bg.jpg';
-c.drawImage(bg, 0,0);
+c.drawImage(bg, 0, 0);
 
 // key event map
 var map = {
@@ -32,7 +36,7 @@ addEventListener('keydown', function (event) {
 
         } else if (map['38']) {
             player.y += -10;
-        } 
+        }
         // else if (map['40']) {
         //     player.y += 10;
         // }
@@ -68,15 +72,15 @@ let player = {
 
         if (this.y <= 0) {
             this.y = 0; // set y = (full height - player size) to not pass top side
-        }else if (this.y < this.height/5){ // if y close to zero then end the game
-            location.reload(); 
+        } else if (this.y < this.height / 5) { // if y close to zero then end the game
+            location.reload();
         }
-         else if (this.y >= (Height - this.height)) {
+        else if (this.y >= (Height - this.height)) {
             this.y = (Height - this.height); // set y = 0 to not pass bottom side
         }
-        c.drawImage(bg, 0,0);
+        c.drawImage(bg, 0, 0);
         c.drawImage(player_img, this.x, this.y, this.width, this.height);
-        
+
     }
 
 };
@@ -91,7 +95,7 @@ class Ball {
         this.dx = velocity * Math.cos(dir);
         this.dy = velocity;
     }
- 
+
     draw1() {
         c.beginPath();
         c.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
@@ -101,22 +105,23 @@ class Ball {
         c.stroke();
         c.fill();
     }
- 
+
     update() {
         // if (this.x + this.radius > width || this.x - this.radius < 0)
         //     this.dx = -this.dx;
         // if (this.y + this.radius > width || this.y - this.radius < 0)
         //     this.dy = -this.dy;
- 
-        // this.x += this.dx;
+
+        //this.x += this.dx;
         this.y += this.dy;
         this.draw1();
     }
- };
+};
 
-let ball = new Ball(10, 2, "white");
-let ball1 = new Ball(10, 2, "white");
-let ball2 = new Ball(10, 2, "white");
+let ball = new Ball(10, 3, "white");
+let ball1 = new Ball(10, 3, "red");
+let ball2 = new Ball(10, 3, "green");
+
 // animation
 function move() {
     requestAnimationFrame(move); //method tells the browser that you wish to perform an animation
@@ -125,12 +130,18 @@ function move() {
     ball.update();
     ball1.update();
     ball2.update();
-    if(ball.y == Height-20){
-        ball = new Ball(10, 2, "white"); 
-        ball1 = new Ball(10, 2, "white");
-    ball2 = new Ball(10, 2, "white");
+    if (ball.y == Height-20) {
+        ball = new Ball(10, 3, "white");
+        ball1 = new Ball(10, 3, "red");
+        ball2 = new Ball(10, 3, "green");
     }
-    
+    if(ball.y == player.y-20){
+        console.log("HH");
+        sc++;
+        score.innerText = "Score: " + sc;
+    }
+ 
+
 }
 
 move();
@@ -179,14 +190,14 @@ move();
 //             let r = Math.random() * 255;
 //     let g = Math.random() * 255;
 //      let b = Math.random() * 255;
-        
+
 //         ctx.beginPath();
 //         ctx.arc(x, y , 10, 0 , Math.PI * 2, false);
 //         ctx.strokeStyle = 'rgb(' + r + ',' + g + ',' + b + ')';
 //         ctx.fillStyle = 'rgb(' + r + ',' + g + ',' + b + ')';
 //         ctx.stroke();
 //     }
-    
+
 // }
 // }
 
