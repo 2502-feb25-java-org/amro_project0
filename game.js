@@ -135,15 +135,13 @@ function move() {
         ball1 = new Ball(10, 3, "red");
         ball2 = new Ball(10, 3, "green");
     }
-    if(ball.y == player.y-20){
+    
+    if(ball.y >= player.y){
         console.log("HH");
         sc++;
         score.innerText = "Score: " + sc;
     }
- 
-
 }
-
 move();
 
 
