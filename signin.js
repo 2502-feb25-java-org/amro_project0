@@ -4,9 +4,9 @@ let form = document.getElementById("form");
 
 
 bt.addEventListener("click", ()=>{
-    let user = document.getElementById("user");
-    let pass = document.getElementById("password");
-    if (user.value === "user" && pass.value == "123") {
+    let user = document.getElementById("user").value;
+    let pass = document.getElementById("password").value;
+    if (user.toLowerCase() === "admin" && pass === "Password123") {
         form.action = "game.html";
     }
     else{

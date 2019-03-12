@@ -1,13 +1,13 @@
-function buttonFs(){
+function buttonFs() {
     document.getElementById("submit").disabled = true;
 }
- function buttonEn(){
+function buttonEn() {
     document.getElementById("submit").disabled = false;
 }
 
 
 
-function load(){
+function load() {
     document.getElementById("firstname").value = localStorage.getItem("firstname");
     document.getElementById("lastname").value = localStorage.getItem("lastname");
     document.getElementById("age").value = localStorage.getItem("age");
@@ -17,96 +17,112 @@ function load(){
 }
 
 
-function save(){
-   localStorage.clear();
+function save() {
+    localStorage.clear();
     let ids = [document.getElementById("firstname"),
     document.getElementById("lastname"),
     document.getElementById("age"),
     document.getElementById("tel"),
     document.getElementById("email")];
     for (let i = 0; i < ids.length; i++) {
-        localStorage.setItem(ids[i].id, ids[i].value); 
+        localStorage.setItem(ids[i].id, ids[i].value);
     }
 }
-function validatefirstname(){
-    if(document.getElementById("firstname").value.length == 0){
+function validatefirstname() {
+    if (document.getElementById("firstname").value.length == 0) {
         document.getElementById("errorfn").innerHTML = "First Name can't be empty";
         buttonFs();
-    }else{
-    document.getElementById("errorfn").innerHTML = "";
-    buttonEn();
+    } else {
+        document.getElementById("errorfn").innerHTML = "";
+        buttonEn();
     }
 }
 
-function validatelastname(){
-    if(document.getElementById("firstname").value === document.getElementById("lastname").value){
+function validatelastname() {
+    if (document.getElementById("firstname").value === document.getElementById("lastname").value) {
         document.getElementById("errorln").innerHTML = "First Name can't be as Last Name";
         buttonFs();
-        
-    }else if(document.getElementById("lastname").value.length == 0){
+
+    } else if (document.getElementById("lastname").value.length == 0) {
         document.getElementById("errorln").innerHTML = "First Name can't be empty";
         buttonFs();
-    }else{
+    } else {
         document.getElementById("errorln").innerHTML = "";
         buttonEn();
     }
 }
 
-function validatemiddlename(){
-    if(document.getElementById("middlename").value === document.getElementById("lastname").value){
+function validatemiddlename() {
+    if (document.getElementById("middlename").value === document.getElementById("lastname").value) {
         document.getElementById("errormn").innerHTML = "Middle Name can't be as Last Name";
         buttonFs();
-        
-    }else{
+
+    } else {
         document.getElementById("errorln").innerHTML = "";
         buttonEn();
     }
 }
 
-function validateage(){
-    if(document.getElementById("age").value < 16 || document.getElementById("age").value > 100){
+function validateage() {
+    if (document.getElementById("age").value < 16 || document.getElementById("age").value > 100) {
         document.getElementById("errorage").innerHTML = "Age should be between 8 and 120";
         buttonFs();
     }
-    else{
+    else {
         document.getElementById("errorage").innerHTML = "";
         buttonEn();
     }
 }
 
-function validatetel(){
-    if(!document.getElementById("tel").value.match("[0-9]{3}-[0-9]{3}-[0-9]{4}")){
+function validatetel() {
+    if (!document.getElementById("tel").value.match("[0-9]{3}-[0-9]{3}-[0-9]{4}")) {
         document.getElementById("errortel").innerHTML = "Phone has to be like 000-000-0000";
         buttonFs();
-    }else{
+    } else {
         document.getElementById("errortel").innerHTML = "";
         buttonEn();
     }
 }
 
-function validateemail(){
-    if(!document.getElementById("email").value.match("^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$")){
+function validateemail() {
+    if (!document.getElementById("email").value.match("^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$")) {
         document.getElementById("erroremail").innerHTML = "email isn't correct";
         buttonFs();
-    }else{
+    } else {
         document.getElementById("erroremail").innerHTML = "";
         buttonEn();
     }
 }
 
-// window.addEventListener("DOMLoad" , ()=>{
-//     let email = document.getElementById("email");
+function fillcity() {
+    let zip = document.getElementById("zipcode").value;
+    let city = document.getElementById("city");
+    let state = document.getElementById("state");
+    let errorzip = document.getElementById("errorzip");
+    
 
-//     email.addEventListener("edit", ()=>{
-//         if(email.value.match("^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$")){
-//             document.getElementById("erroremail").innerHTML = "email isn't correct";
-//             buttonFs();
-//         }else{
-//             document.getElementById("erroremail").innerHTML = "";
-//             buttonEn();  
-//         }
-//     });
+    const URL = "https://api.zip-codes.com/ZipCodesAPI.svc/1.0/QuickGetZipCodeDetails/" + zip + "?key=DEMOAPIKEY";;
+    let xtr = new XMLHttpRequest();
+    let str;
 
-
-// })();
+    xtr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            // parse JSON to Js Object
+            str = JSON.parse(xtr.response);
+            if (str.City && str.State) {
+                // set value for city
+                city.value = str.City;
+                // set the value for state
+                state.value = str.State;
+                errorzip.innerHTML = "";
+                buttonEn();
+            } else {
+                errorzip.innerHTML = "Wrong zipCode";
+                buttonFs();
+            }
+        }
+    }
+    xtr.open("get", URL, true);
+    xtr.send();
+}
 

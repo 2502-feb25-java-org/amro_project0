@@ -90,15 +90,15 @@
                         <div class="row">
                             <div class="col-6">
                                 <div class="col-12">
-                                    <input oninput="validatefirstname()" id="firstname" type="text" class="form-control"
-                                        id="firstname" placeholder="First Name" required>
+                                    <input onchange="validatefirstname()" id="firstname" type="text"
+                                        class="form-control" id="firstname" placeholder="First Name" required>
                                     <label id="errorfn" style="color: red"></label>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="col-12">
-                                    <input oninput="validatemiddlename()" id="middlename" type="text" class="form-control"
-                                        id="middlename" placeholder="Middle (Optional)">
+                                    <input onchange="validatemiddlename()" id="middlename" type="text"
+                                        class="form-control" id="middlename" placeholder="Middle (Optional)">
                                     <label id="errormn" style="color: red"></label>
                                 </div>
                             </div>
@@ -106,14 +106,14 @@
                         <div class="row">
                             <div class="col-6">
                                 <div class="col-12">
-                                    <input oninput="validatelastname()" id="lastname" type="text" class="form-control"
+                                    <input onchange="validatelastname()" id="lastname" type="text" class="form-control"
                                         id="lastname" placeholder="Last Name" required>
                                     <label id="errorln" style="color: red"></label>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="col-12">
-                                    <input oninput="validateage()" id="age" type="number" class="form-control" id="age"
+                                    <input onchange="validateage()" id="age" type="number" class="form-control" id="age"
                                         placeholder="Age" required>
                                     <label id="errorage" style="color: red"></label>
                                 </div>
@@ -122,8 +122,8 @@
                         <div class="row">
                             <div class="col-6">
                                 <div class="col-12">
-                                    <input oninput="validatetel()" id="tel" type="tel" class="form-control" id="phone"
-                                        placeholder="Phone: 000-000-0000" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                                    <input onchange="validatetel()" id="tel" type="tel" class="form-control" id="phone"
+                                        placeholder="Phone: 000-000-0000" maxlength="12">
                                     <label id="errortel" style="color: red"></label>
                                 </div>
                             </div>
@@ -186,31 +186,31 @@
                         <div class="row">
                             <div class="col-6">
                                 <div class="col-12">
-                                    <input id="zipcode" type="number" class="form-control" id="zipcode"
-                                        placeholder="Zip Code" required>
+                                    <input onchange="fillcity()" id="zipcode" type="text" class="form-control"
+                                        placeholder="Zip Code" maxlength="5" required>
                                     <label id="errorzip" style="color: red"></label>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="col-12">
-                                    <input id="city" type="city" class="form-control" id="city" placeholder="City"
-                                        required>
-                                        <label id="errorcity" style="color: red"></label>
+                                    <input id="city" type="city" class="form-control" placeholder="City" required
+                                        disabled>
+                                    <label id="errorcity" style="color: red"></label>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-6">
                                 <div class="col-12">
-                                    <input id="state" type="text" class="form-control" id="state" placeholder="State"
-                                        required>
+                                    <input id="state" type="text" class="form-control" placeholder="State" required
+                                        disabled>
                                     <label id="errorstate" style="color: red"></label>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="col-12">
-                                    <input id="country" type="text" class="form-control" id="country"
-                                        placeholder="Country" required>
+                                    <input id="country" type="text" class="form-control" placeholder="Country" disabled
+                                        value="United States">
                                     <label id="errorcountry" style="color: red"></label>
                                 </div>
                             </div>
