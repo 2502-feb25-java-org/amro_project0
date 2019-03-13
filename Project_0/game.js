@@ -73,7 +73,13 @@ let player = {
         if (this.y <= 0) {
             this.y = 0; // set y = (full height - player size) to not pass top side
         } else if (this.y < this.height / 5) { // if y close to zero then end the game
-            location.reload();
+            let flag;
+            if(!flag){
+                flag = true;
+                alert("Final Score is: "+ sc)
+                location.reload();
+            }
+            
         }
         else if (this.y >= (Height - this.height)) {
             this.y = (Height - this.height); // set y = 0 to not pass bottom side
@@ -139,7 +145,7 @@ function move() {
     // increase the score if the ball hit the spaceship
     // it has a bug and it needs work (needs matrix to determine the range of the intersection)
 
-    if(ball.y == player.y || ball1.y == player.y || ball2.y == player.y){
+    if(ball.dy == player.y || ball1.dy == player.y || ball2.dy == player.y){
         console.log("ball Y:" + ball.y + "player Y :" + player.y);
         sc++;
         score.innerText = "Score: " + sc;
