@@ -107,12 +107,12 @@ class Ball {
     }
 
     update() {
-        // if (this.x + this.radius > width || this.x - this.radius < 0)
+        // if (this.x + this.radius > Width || this.x - this.radius < 0)
         //     this.dx = -this.dx;
-        // if (this.y + this.radius > width || this.y - this.radius < 0)
+        // if (this.y + this.radius > Width || this.y - this.radius < 0)
         //     this.dy = -this.dy;
 
-        //this.x += this.dx;
+        // this.x += this.dx;
         this.y += this.dy;
         this.draw1();
     }
@@ -136,11 +136,15 @@ function move() {
         ball2 = new Ball(10, 3, "green");
     }
     
+    // increase the score if the ball hit the spaceship
+    // it has a bug and it needs work (needs matrix to determine the range of the intersection)
+
     if(ball.y == player.y || ball1.y == player.y || ball2.y == player.y){
-        console.log("HH");
+        console.log("ball Y:" + ball.y + "player Y :" + player.y);
         sc++;
         score.innerText = "Score: " + sc;
     }
+
 }
 move();
 
