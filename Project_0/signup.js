@@ -13,7 +13,11 @@ function load() {
     document.getElementById("age").value = localStorage.getItem("age");
     document.getElementById("tel").value = localStorage.getItem("tel");
     document.getElementById("email").value = localStorage.getItem("email");
-
+    document.getElementById("middlename").value = localStorage.getItem("middlename");
+    document.getElementById("addressline1").value = localStorage.getItem("addressline1");
+    document.getElementById("zipcode").value = localStorage.getItem("zipcode");
+    document.getElementById("city").value = localStorage.getItem("city");
+    document.getElementById("state").value = localStorage.getItem("state");
 }
 
 
@@ -23,7 +27,12 @@ function save() {
     document.getElementById("lastname"),
     document.getElementById("age"),
     document.getElementById("tel"),
-    document.getElementById("email")];
+    document.getElementById("email"),
+    document.getElementById("middlename"),
+    document.getElementById("addressline1"),
+    document.getElementById("zipcode"),
+    document.getElementById("city"),
+    document.getElementById("state")];
     for (let i = 0; i < ids.length; i++) {
         localStorage.setItem(ids[i].id, ids[i].value);
     }
@@ -64,8 +73,8 @@ function validatemiddlename() {
 }
 
 function validateage() {
-    if (document.getElementById("age").value < 16 || document.getElementById("age").value > 100) {
-        document.getElementById("errorage").innerHTML = "Age should be between 8 and 120";
+    if (document.getElementById("age").value < 16 || document.getElementById("age").value > 120) {
+        document.getElementById("errorage").innerHTML = "Age should be between 16 and 120";
         buttonFs();
     }
     else {
